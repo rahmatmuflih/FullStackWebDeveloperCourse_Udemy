@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>coba flex</title>
+    <style>
+      .container {
+        display: flex;
+        border: 10px solid yellowgreen;
+        gap: 10px;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .container > div {
+        padding: 0 10px;
+        border-radius: 5px;
+        text-align: center;
+      }
+      .not-grow {
+        background-color: #f6e58d;
+        flex-basis: 200px;
+        max-width: 100px;
+      }
+      .grow {
+        background-color: #f0932b;
+        max-width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="not-grow">item one</div>
+      <div class="grow">item two</div>
+      <div class="not-grow">item three</div>
+      <!-- <div class="not-grow">item four</div>
+      <div class="not-grow">item five</div>
+      <div class="not-grow">item six</div> -->
+    </div>
+  </body>
+</html>

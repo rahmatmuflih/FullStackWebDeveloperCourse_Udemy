@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>coba flexbox</title>
+    <style>
+      .container {
+        display: inline-flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .container > div {
+        border: 1px solid black;
+        padding: 10px 15px;
+        background-color: plum;
+        flex-basis: 2fr;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>We</div>
+      <div>Known</div>
+      <div>Each</div>
+      <div>Other</div>
+      <div>For</div>
+      <div>So</div>
+      <div>Long</div>
+    </div>
+  </body>
+</html>

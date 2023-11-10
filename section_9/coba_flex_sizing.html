@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>coba flex sizing</title>
+    <style>
+      .container {
+        display: flex;
+        border: 5px solid black;
+        padding: 10px;
+        gap: 10px;
+      }
+      .container > div {
+        border: 2px solid blue;
+        padding: 5px;
+        max-width: 100px;
+        flex-basis: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>home</div>
+      <div>portofolo</div>
+      <div>contact</div>
+      <div>the best programming lesson in the world</div>
+    </div>
+  </body>
+</html>

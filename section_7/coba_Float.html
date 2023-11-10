@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>coba float</title>
+    <style>
+      .merah,
+      .biru,
+      .kuning {
+        width: 200px;
+        height: 200px;
+        /* margin: 15px 0; */
+      }
+      .biru > div {
+        width: 50px;
+        height: 50px;
+        margin: 0 0 5px 5px;
+      }
+      .biru > div:not(.ungu) {
+        float: left;
+      }
+      .merah {
+        background-color: red;
+        /* display: inline; */
+        float: right;
+      }
+      .biru {
+        background-color: blue;
+        float: left;
+        /* width: auto; */
+        padding: 5px 5px 0 0;
+      }
+      .kuning {
+        background-color: yellow;
+        display: inline-block;
+      }
+      .hijau {
+        background-color: green;
+      }
+      .ungu {
+        background-color: purple;
+        float: right;
+      }
+      .pink {
+        background-color: pink;
+      }
+      .jingga {
+        background-color: orange;
+      }
+      /* p {
+        width: 200px;
+      } */
+      /* ol{
+        float: left;
+      } */
+      li {
+        float: left;
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="kuning"></div> -->
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus nihil quod
+      rem doloremque ipsam ab porro itaque officia, minima velit vero reiciendis
+      dolor dolores ipsa quidem deleniti perferendis esse placeat. Lorem ipsum
+      dolor sit amet, consectetur adipisicing elit. Voluptatibus tempora
+      asperiores dicta, quasi odit dolor error dignissimos. Est provident et,
+      non distinctio eveniet consectetur nostrum aperiam, alias, minus qui
+      soluta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
+      nulla voluptatibus veniam eius nam ex nisi iusto? Rem nesciunt excepturi
+      quod, quae quo quis non quaerat cum totam, temporibus incidunt! Lorem
+      ipsum dolor, sit amet consectetur adipisicing elit. Quo, autem! Architecto
+      beatae similique labore impedit possimus iusto quae obcaecati doloribus
+      laborum deserunt consectetur aliquid quos quod, enim ipsa id. Officiis.
+      <div class="merah"></div>
+    </p>
+    <!-- <div class="biru">
+      <div class="hijau"></div>
+      <div class="ungu"></div>
+      <div class="pink"></div>
+      <div class="jingga"></div>
+    </div> -->
+    <!-- <ol>
+      <li>kukuruyuk</li>
+      <li>kakarayak</li>
+      <li>kikiriyik</li>
+      <li>kokoroyok</li>
+      <li>kekereyek</li>
+    </ol> -->
+  </body>
+</html>
