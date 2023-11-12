@@ -1,13 +1,13 @@
 function Rand() {
-  var random_number1 = Math.floor(Math.random() * 6) + 1;
-  var random_number2 = Math.floor(Math.random() * 6) + 1;
-  var rand_img_src1 = "./images/dice" + random_number1 + ".png";
-  var rand_img_src2 = "./images/dice" + random_number2 + ".png";
-  var img1 = document.querySelector(".p1 img");
+  let random_number1 = Math.floor(Math.random() * 6) + 1;
+  let random_number2 = Math.floor(Math.random() * 6) + 1;
+  let rand_img_src1 = "./images/dice" + random_number1 + ".png";
+  let rand_img_src2 = "./images/dice" + random_number2 + ".png";
+  let img1 = document.querySelector(".p1 img");
   img1.setAttribute("src", rand_img_src1);
-  var img2 = document.querySelector(".p2 img");
+  let img2 = document.querySelector(".p2 img");
   img2.setAttribute("src", rand_img_src2);
-  var h1 = document.querySelector(".title");
+  let h1 = document.querySelector(".title");
 
   if (random_number1 > random_number2) {
     h1.textContent = "🚩Player 1 Wins!";
@@ -19,7 +19,7 @@ function Rand() {
 }
 
 window.onload = function () {
-  var reloading = sessionStorage.getItem("reloading");
+  let reloading = sessionStorage.getItem("reloading");
   if (reloading) {
     sessionStorage.removeItem("reloading");
     Rand();
