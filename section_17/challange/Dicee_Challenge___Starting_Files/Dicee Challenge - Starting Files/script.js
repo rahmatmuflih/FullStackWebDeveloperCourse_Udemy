@@ -1,52 +1,13 @@
-var random_number1 = Math.floor(Math.random() * 6) + 1;
-var random_number2 = Math.floor(Math.random() * 6) + 1;
-var img1 = document.querySelector(".p1 img");
-var img2 = document.querySelector(".p2 img");
-var h1 = document.querySelector(".title");
-var flag = 0;
-
 function Rand() {
-  switch (random_number1) {
-    case 1:
-      img1.setAttribute("src", "./images/dice1.png");
-      break;
-    case 2:
-      img1.setAttribute("src", "./images/dice2.png");
-      break;
-    case 3:
-      img1.setAttribute("src", "./images/dice3.png");
-      break;
-    case 4:
-      img1.setAttribute("src", "./images/dice4.png");
-      break;
-    case 5:
-      img1.setAttribute("src", "./images/dice5.png");
-      break;
-    case 6:
-      img1.setAttribute("src", "./images/dice6.png");
-      break;
-  }
-
-  switch (random_number2) {
-    case 1:
-      img2.setAttribute("src", "./images/dice1.png");
-      break;
-    case 2:
-      img2.setAttribute("src", "./images/dice2.png");
-      break;
-    case 3:
-      img2.setAttribute("src", "./images/dice3.png");
-      break;
-    case 4:
-      img2.setAttribute("src", "./images/dice4.png");
-      break;
-    case 5:
-      img2.setAttribute("src", "./images/dice5.png");
-      break;
-    case 6:
-      img2.setAttribute("src", "./images/dice6.png");
-      break;
-  }
+  var random_number1 = Math.floor(Math.random() * 6) + 1;
+  var random_number2 = Math.floor(Math.random() * 6) + 1;
+  var rand_img_src1 = "./images/dice" + random_number1 + ".png";
+  var rand_img_src2 = "./images/dice" + random_number2 + ".png";
+  var img1 = document.querySelector(".p1 img");
+  img1.setAttribute("src", rand_img_src1);
+  var img2 = document.querySelector(".p2 img");
+  img2.setAttribute("src", rand_img_src2);
+  var h1 = document.querySelector(".title");
 
   if (random_number1 > random_number2) {
     h1.textContent = "🚩Player 1 Wins!";
