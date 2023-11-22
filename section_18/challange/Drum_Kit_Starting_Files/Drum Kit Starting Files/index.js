@@ -6,9 +6,10 @@
 // );
 
 let drum = document.querySelectorAll(".set .drum");
+let tom_1 = new Audio("./sounds/tom-1.mp3");
 
 for (let i = 0; i < drum.length; i++) {
   drum[i].addEventListener("click", function () {
-    // alert(drum[i].textContent + " got clicked");
+    this.style.color = "white";
   });
 }
