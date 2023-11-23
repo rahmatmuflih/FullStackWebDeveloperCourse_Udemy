@@ -1,4 +1,4 @@
-// Alternative
+// ALTERNATIVE
 // document.querySelectorAll(".set .drum").forEach((element) =>
 //   element.addEventListener("click", function () {
 //     alert(element.textContent + " got clicked");
