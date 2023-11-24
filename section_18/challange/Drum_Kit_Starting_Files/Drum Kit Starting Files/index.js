@@ -11,11 +11,13 @@ for (let i = 0; i < drum.length; i++) {
   drum[i].addEventListener("click", function () {
     this.buttonSelection = drum[i].innerHTML;
     makeSomeNoise(this.buttonSelection);
+    buttonAnimation(this.buttonSelection);
   });
 }
 
 document.addEventListener("keydown", function (e) {
   makeSomeNoise(e.key);
+  buttonAnimation(e.key);
 });
 
 function makeSomeNoise(key) {
@@ -51,4 +53,12 @@ function makeSomeNoise(key) {
     default:
       break;
   }
+}
+
+function buttonAnimation(currentKey) {
+  var activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+  setTimeout(function () {
+    activeButton.classList.remove("pressed");
+  }, 100);
 }
