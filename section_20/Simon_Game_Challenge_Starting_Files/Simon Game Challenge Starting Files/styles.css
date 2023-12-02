@@ -1,6 +1,8 @@
 body {
   text-align: center;
   background-color: #011f3f;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 #level-title {

@@ -2,65 +2,68 @@ const butttonColours = ["red", "blue", "green", "yellow"];
 let gamePattern = [];
 let userClickedPattern = [];
 let level = 0;
-let colour = "";
-let answer = 0;
+let started = false;
+let gameOver = false;
 
 $(document).ready(function () {
-  $(document).on("click", function () {
-    $(document).off("click");
+  $(document).keydown(function () {
+    if (!started) {
+      started = true;
 
-    gameStart();
+      gameStart();
+
+      $(".btn").on("click", function (e) {
+        let userChosenColour = e.target.id;
+        userClickedPattern.push(userChosenColour);
+
+        animatePress(userChosenColour);
+        playSound(userChosenColour);
+        checkAnswer();
+
+        if (!gameOver) {
+          gameStart();
+        }
+      });
+    }
   });
 });
 
-function gameStart() {
-  colour = nextSequence();
-
-  $("#level-title").text("Level " + level);
-
-  setTimeout(function () {
-    $("#" + colour).fadeOut(50);
-    $("#" + colour).fadeIn(50);
-    playSound(colour);
-  }, 1000);
-
-  $(".btn").on("click", function (e) {
-    let userChosenColour = e.target.id;
-
-    userClickedPattern.push(userChosenColour);
-
-    checkAnswer();
-    playSound(userChosenColour);
-    animatePress(userChosenColour);
-    // console.log(userClickedPattern);
-  });
-}
-
 function checkAnswer() {
+  let wrongSound = new Audio("./sounds/wrong.mp3");
+
   for (let i = 0; i < userClickedPattern.length; i++) {
-    console.log("cycle- " + i);
-    console.log("this is game Pattern " + gamePattern);
-    if (userClickedPattern[i] === gamePattern[i]) {
-      answer++;
-      console.log(
-        "checking " + userClickedPattern[i] + " and " + gamePattern[i]
-      );
-      console.log("this is user clicked pattern " + userClickedPattern);
-      console.log("Right");
-    } else {
-      userClickedPattern = [];
-      console.log(
-        "checking " + userClickedPattern[i] + " and " + gamePattern[i]
-      );
-      console.log("this is user clicked pattern " + userClickedPattern);
-      console.log("Wrong");
+    if (userClickedPattern[i] != gamePattern[i]) {
+      flag = i;
+
+      wrongSound.play();
+      $("h1").text("Game Over, Press Any Key to Restart");
+      $("body").addClass("game-over");
+      setTimeout(function () {
+        $("body").removeClass("game-over");
+      }, 100);
+
+      startOver();
     }
   }
-  console.log("----- end of cycle -----");
-  if (
-    userClickedPattern.length === gamePattern.length &&
-    answer === gamePattern.length
-  ) {
+}
+
+function gameStart() {
+  let colour = "";
+
+  if (userClickedPattern.length === 0) {
+    colour = nextSequence();
+    setTimeout(
+      function () {
+        $("#level-title").text("Level " + level);
+        $("#" + colour).fadeOut(50);
+        $("#" + colour).fadeIn(50);
+        playSound(colour);
+      },
+      level === 1 ? 0 : 1000
+    );
+  }
+
+  if (userClickedPattern.length === gamePattern.length) {
     userClickedPattern = [];
     gameStart();
   }
@@ -76,34 +79,22 @@ function nextSequence() {
   return randomChosenColour;
 }
 
-function animatePress(currentColour) {
-  var activeButton = document.querySelector("." + currentColour);
+function startOver() {
+  gameOver = true;
+  userClickedPattern = [];
+  gamePattern = [];
+  level = 0;
+  started = false;
+}
 
-  activeButton.classList.add("pressed");
+function animatePress(currentColour) {
+  $("." + currentColour).addClass("pressed");
   setTimeout(function () {
-    activeButton.classList.remove("pressed");
+    $("." + currentColour).removeClass("pressed");
   }, 100);
 }
 
 function playSound(randomColour) {
-  switch (randomColour) {
-    case "red":
-      this.sound = new Audio("./sounds/red.mp3");
-      this.sound.play();
-      break;
-    case "blue":
-      this.sound = new Audio("./sounds/blue.mp3");
-      this.sound.play();
-      break;
-    case "green":
-      this.sound = new Audio("./sounds/green.mp3");
-      this.sound.play();
-      break;
-    case "yellow":
-      this.sound = new Audio("./sounds/yellow.mp3");
-      this.sound.play();
-      break;
-    default:
-      break;
-  }
+  let sound = new Audio("./sounds/" + randomColour + ".mp3");
+  sound.play();
 }
